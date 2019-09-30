@@ -1,0 +1,20 @@
+{
+	"URLMonitors": [
+		{
+			"URL": "http://google.com",
+			"StatusOK": true
+		},
+		{
+			"URL": "http://detik.com",
+			"StatusOK": true
+		},
+		{
+			"URL": "http://github.com",
+			"StatusOK": true
+		},
+		{
+			"URL": "http://taraktak.com",
+			"StatusOK": false
+		}
+	]
+}
