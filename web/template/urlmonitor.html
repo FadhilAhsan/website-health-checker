@@ -118,19 +118,19 @@
         background: #109177;
       }
     </style>
+    <title>{{.Title}}</title>
   </head>
   <body>
     <div class="form-style-5">
       <form method="POST" action="/">
         <fieldset>
           <input type="text" name="url" placeholder="Add URL include http://, example http://google.com">
-          <input type="submit" value="Add" />
-          Legend : <span class="number-green">OK</span> <span class="number-red">!OK</span><br>
+          <input type="submit" value="Check" />
+          <b style="color:red">{{.ErrorMessage}}</b><br>
 
-          List URL : 
             <ol>
           <table>
-          {{range $index, $URLMonitor := .URLMonitors}}
+          {{range $index, $URLMonitor := .URLs.URLMonitors}}
               <tr>
             {{if .StatusOK}}
                 <td><li> {{ $URLMonitor.URL}}</li></td><td><span class="number-green"></span></td>

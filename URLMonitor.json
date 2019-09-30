@@ -1,12 +1,8 @@
 {
 	"URLMonitors": [
 		{
-			"URL": "http://github.com",
-			"StatusOK": false
-		},
-		{
 			"URL": "http://google.com",
-			"StatusOK": false
+			"StatusOK": true
 		}
 	]
 }
