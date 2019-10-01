@@ -12,7 +12,9 @@ import (
 
 func handleRequests() {
     http.HandleFunc("/", controllers.URLMonitorPage)
-    // http.HandleFunc("/add", controllers.HomePage)
+    http.HandleFunc("/api/url", controllers.URLMonitorGetAll)
+    http.HandleFunc("/api/url/add", controllers.URLMonitorPost)
+    http.Handle("/assets/",http.StripPrefix("/assets/", http.FileServer(http.Dir("../../web/static/assets/"))))
     err := http.ListenAndServe(configs.PORT_SERVER, nil)
     log.Fatal(err)
 }

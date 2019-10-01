@@ -96,7 +96,8 @@
       }
 
       .form-style-5 input[type="submit"],
-      .form-style-5 input[type="button"]
+      .form-style-5 input[type="button"],
+      .form-style-5 button
       {
         position: relative;
         display: block;
@@ -113,32 +114,29 @@
         margin-bottom: 10px;
       }
       .form-style-5 input[type="submit"]:hover,
-      .form-style-5 input[type="button"]:hover
+      .form-style-5 input[type="button"]:hover,
+      .form-style-5 button:hover
       {
         background: #109177;
       }
     </style>
+
     <title>{{.Title}}</title>
   </head>
   <body>
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <script src="../assets/custom.js"></script>
     <div class="form-style-5">
-      <form method="POST" action="/">
+      <form>
         <fieldset>
-          <input type="text" name="url" placeholder="Add URL include http://, example http://google.com">
-          <input type="submit" value="Check" />
-          <b style="color:red">{{.ErrorMessage}}</b><br>
+          <input id="inputURL" type="text" name="url" placeholder="Add URL include http://, example http://google.com">
+          <div class="submit-button" onClick=addURL()> 
+              <button type=button >Check</button>
+          </div>
+          <div class="error-message"> </div><br>
 
             <ol>
-          <table>
-          {{range $index, $URLMonitor := .URLs.URLMonitors}}
-              <tr>
-            {{if .StatusOK}}
-                <td><li> {{ $URLMonitor.URL}}</li></td><td><span class="number-green"></span></td>
-            {{else}}
-                <td><li> {{ $URLMonitor.URL}}</li></td><td><span class="number-red"></span></td>
-            {{end}}
-              </tr>
-          {{end}}
+          <table class="url-health" id="urlHealth">
           </table>
             </ol>
         </fieldset>

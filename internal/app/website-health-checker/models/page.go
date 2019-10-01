@@ -1,7 +1,6 @@
 package models
 
-type URLMonitorPage struct {
+type Page struct {
 	Title 		 string
 	ErrorMessage string
-	URLs 		 URLMonitors
 }

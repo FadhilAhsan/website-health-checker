@@ -3,6 +3,10 @@
 		{
 			"URL": "http://google.com",
 			"StatusOK": true
+		},
+		{
+			"URL": "http://taraktak.com",
+			"StatusOK": false
 		}
 	]
 }

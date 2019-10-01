@@ -20,12 +20,12 @@ var client = http.Client{
 
 var URLList models.URLMonitors
 
-func AddURL (urlString string)(error){
-	if !IsURL(urlString){
+func AddURL (urlMonitor *models.URLMonitor)(error){
+	if !IsURL(urlMonitor.URL){
 		return errors.New("URL is not valid")
 	}
 
-	um,err := CheckHealthURL(urlString)
+	um,err := CheckHealthURL(urlMonitor.URL)
 	if err != nil {
 		log.Println("[Error] AddURL : ",err)
 		return err
@@ -44,6 +44,7 @@ func AddURL (urlString string)(error){
 	    return err
   	}
 	log.Println("[Success] AddURL : ",um.URL)
+	urlMonitor.StatusOK = um.StatusOK
 	return nil
 }
 
